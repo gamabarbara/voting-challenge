@@ -39,7 +39,7 @@ public class AppExceptionHandler {
 
     @ExceptionHandler(UnexpectedTypeException.class)
     public ResponseEntity<ErrorResponse> handleUnexpectedTypeException(UnexpectedTypeException ex) {
-        String message = "Erro de validação: " + ex.getMessage();
+        String message = "Validation error: " + ex.getMessage();
         ErrorResponse error = new ErrorResponse(message);
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }

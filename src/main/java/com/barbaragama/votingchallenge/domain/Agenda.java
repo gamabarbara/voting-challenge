@@ -37,4 +37,9 @@ public class Agenda {
     public Agenda(UUID id) {
         this.id = id;
     }
+
+    public Agenda(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 }

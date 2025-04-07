@@ -1,5 +1,6 @@
 package com.barbaragama.votingchallenge.domain;
 
+import com.barbaragama.votingchallenge.dto.request.AssociateRequestDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -31,4 +32,14 @@ public class Associate {
     @Column(unique = true)
     @Schema(description = "CPF of the associate.", example = "123.456.789-09")
     private String cpf;
+
+    public Associate(AssociateRequestDTO associateRequestDTO) {
+        this.name = associateRequestDTO.getName();
+        this.cpf = associateRequestDTO.getCpf();
+    }
+
+    public Associate(String name, String cpf) {
+        this.name = name;
+        this.cpf = cpf;
+    }
 }

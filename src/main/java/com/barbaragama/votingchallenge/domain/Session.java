@@ -55,4 +55,12 @@ public class Session {
 
     @Schema(description = "Session duration in minutes", example = "30")
     private long durationMinutes;
+
+    public Session (Agenda agenda, long durationMinutes) {
+        this.agenda = agenda;
+        this.durationMinutes = durationMinutes;
+        this.startTime = LocalDateTime.now();
+        this.endTime = startTime.plusMinutes(durationMinutes);
+        this.sessionStatus = SessionStatus.OPEN;
+    }
 }

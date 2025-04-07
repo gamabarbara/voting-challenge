@@ -25,4 +25,8 @@ public class VoteRequestDTO {
     @Schema(description = "CPF of the associate", example = "123.456.789-09")
     private String cpf;
 
+    @NotBlank(message = "Name cannot be blank")
+    @Schema(description = "Name of the associate", example = "Maria Silva")
+    private String name;
+
 }

@@ -52,4 +52,11 @@ public class Vote {
     @CreationTimestamp
     @Schema(description = "The timestamp when the vote was cast.")
     private LocalDateTime votedAt;
+
+    public Vote(UUID associateId, UUID sessionId, VoteOption voteOption) {
+        this.associate = Associate.builder().id(associateId).build();
+        this.session = Session.builder().id(sessionId).build();
+        this.option = voteOption;
+        this.votedAt = LocalDateTime.now();
+    }
 }

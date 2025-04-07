@@ -23,7 +23,7 @@ public class VoteService {
     @Transactional
     public VoteResponseDTO castVote(VoteRequestDTO voteRequestDTO) {
         Session session = sessionValidationService.validateAndGetSession(voteRequestDTO.getSessionId());
-        Associate associate = associateService.validateAndGetAssociate(voteRequestDTO.getCpf(), session.getId());
+        Associate associate = associateService.validateAndGetAssociate(voteRequestDTO.getName(), voteRequestDTO.getCpf(), session.getId());
         VoteOption voteOption = voteValidationService.validateVoteOption(voteRequestDTO.getOption());
 
         Vote vote = Vote.builder()
