@@ -21,6 +21,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.UUID;
 
 import static org.hamcrest.Matchers.hasSize;
@@ -56,13 +57,12 @@ class VotingSessionControllerTest {
 
     private SessionRequestDTO sessionRequestDTO;
     private SessionResponseDTO sessionResponseDTO;
-    private UUID agendaId;
     private UUID sessionId;
 
     @BeforeEach
     void setUp() {
         Mockito.reset(sessionService);
-        agendaId = UUID.randomUUID();
+        UUID agendaId = UUID.randomUUID();
         sessionId = UUID.randomUUID();
 
         sessionRequestDTO = new SessionRequestDTO();
@@ -78,7 +78,7 @@ class VotingSessionControllerTest {
     @Test
     @DisplayName("Should get all sessions successfully")
     void getAllSuccess() throws Exception {
-        when(sessionService.getAll()).thenReturn(Arrays.asList(sessionResponseDTO));
+        when(sessionService.getAll()).thenReturn(Collections.singletonList(sessionResponseDTO));
 
         mockMvc.perform(get("/api/voting")
                         .contentType(MediaType.APPLICATION_JSON))

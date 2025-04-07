@@ -52,12 +52,11 @@ class VoteControllerTest {
 
     private VoteRequestDTO voteRequestDTO;
     private VoteResponseDTO voteResponseDTO;
-    private UUID sessionId;
 
     @BeforeEach
     void setUp() {
         Mockito.reset(voteService);
-        sessionId = UUID.randomUUID();
+        UUID sessionId = UUID.randomUUID();
 
         voteRequestDTO = new VoteRequestDTO();
         voteRequestDTO.setSessionId(sessionId);
