@@ -182,13 +182,13 @@ class AssociateServiceTest {
             AppException exception = assertThrows(AppException.class, () -> associateService.validateAndGetAssociate(name, cpf, sessionId));
 
             assertEquals("Associate has already voted in this session", exception.getMessage());
-            assertEquals(HttpStatus.CONFLICT, exception.getStatus());
+            assertEquals(HttpStatus.FORBIDDEN, exception.getStatus());
             verify(cpfValidationFacade, never()).validateCpfForVoting(cpf);
             verify(associateRepository, never()).save(any(Associate.class));
         }
 
         @Test
-        @DisplayName("Should throw an exceptio when user is not able to vote")
+        @DisplayName("Should throw an exception when user is not able to vote")
         void shouldThrowExceptionWhenUserIsNoAbleToVote() {
             Associate associate = new Associate(name, cpf);
             when(associateRepository.findByCpf(cpf)).thenReturn(java.util.Optional.of(associate));
@@ -196,7 +196,7 @@ class AssociateServiceTest {
 
             AppException exception = assertThrows(AppException.class, () -> associateService.validateAndGetAssociate(associate.getName(), cpf, sessionId));
 
-            assertEquals("User is not able to vote", exception.getMessage());
+            assertEquals("Associate is not able to vote", exception.getMessage());
             assertEquals(HttpStatus.FORBIDDEN, exception.getStatus());
             verify(associateRepository, never()).save(any(Associate.class));
         }
