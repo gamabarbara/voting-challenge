@@ -19,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/associate")
 @Tag(name = "Associate", description = "Associate management")
+@CrossOrigin(origins = "*")
 public class AssociateController {
     private final AssociateService associateService;
 

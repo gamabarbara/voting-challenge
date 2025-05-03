@@ -54,10 +54,10 @@ public class AssociateService {
             }
         }
 
-        VoteAbility ability = cpfValidationFacade.validateCpfForVoting(cpf);
-        if (ability == VoteAbility.UNABLE_TO_VOTE) {
-            throw new AppException("Associate is not able to vote", HttpStatus.FORBIDDEN);
-        }
+//        VoteAbility ability = cpfValidationFacade.validateCpfForVoting(cpf);
+//        if (ability == VoteAbility.UNABLE_TO_VOTE) {
+//            throw new AppException("Associate is not able to vote", HttpStatus.FORBIDDEN);
+//        }
 
         if (Objects.isNull(associate)) {
             associate = new Associate();

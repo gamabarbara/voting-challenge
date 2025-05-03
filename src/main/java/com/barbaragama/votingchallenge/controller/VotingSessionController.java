@@ -22,6 +22,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/api/voting")
 @Tag(name = "Voting Session", description = "Endpoints for managing voting sessions")
+@CrossOrigin(origins = "*")
 public class VotingSessionController {
 
     private final SessionService sessionService;

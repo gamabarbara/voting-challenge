@@ -21,6 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/api/agenda")
 @Tag(name = "Agenda", description = "Agenda management")
+@CrossOrigin(origins = "*")
 public class AgendaController {
 
     private final AgendaService agendaService;

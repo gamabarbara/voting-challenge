@@ -73,6 +73,16 @@ Para visualizar e gerenciar os dados do banco:
    - Senha: (deixe em branco)
 4. Clique em "Conectar"
 
+## Testes
+
+Foram implementados testes unitários e testes de integração na aplicação.
+
+Comando para rodar os testes:
+
+   ```
+   mvn test
+   ```
+
 ## Documentação da API
 A documentação da API está disponível através do Swagger UI:
 - URL: http://localhost:8080/swagger-ui.html
